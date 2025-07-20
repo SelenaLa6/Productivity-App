@@ -3,6 +3,12 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const home = require("./routes/Home.js");
+app.use('/home', home);
+
+const schedule = require("./routes/Schedule.js");
+app.use('/schedule', schedule);
+
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
